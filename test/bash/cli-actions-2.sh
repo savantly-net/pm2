@@ -136,8 +136,9 @@ $pm2 start python-script.py
 $pm2 start echo.js
 should 'should app be online' 'online' 2
 
-kill `cat ~/.pm2/pm2.pid`
+PM2_PYTHON_PID=`cat ~/.pm2/pm2.pid`
+kill $PM2_PYTHON_PID
 spec "should have killed pm2"
 
-pgrep "python"
+pgrep $PM2_PYTHON_PID
 ispec "should python script be killed"
