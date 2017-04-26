@@ -17,7 +17,7 @@ var sock;
 
 function listen(cb) {
   sock = axon.socket('sub');
-  sock.bind(8080, cb);
+  sock.bind(9080, cb);
 }
 
 function listenRev(cb) {

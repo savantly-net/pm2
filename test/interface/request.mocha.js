@@ -5,7 +5,7 @@ var should  = require('should');
 var assert = require('assert');
 var HttpRequest = require('../../lib/Interactor/HttpRequest.js');
 
-var PORT = 8080;
+var PORT = 9080;
 
 function mockIrritableServer(cb) {
   var http = require('http');

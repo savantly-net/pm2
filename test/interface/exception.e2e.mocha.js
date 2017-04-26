@@ -9,7 +9,7 @@ var sub;
 
 function listen(cb) {
   sub = axon.socket('sub');
-  sub.bind(8080, cb);
+  sub.bind(9080, cb);
 }
 
 function listenRev(cb) {

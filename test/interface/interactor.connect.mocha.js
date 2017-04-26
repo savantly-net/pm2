@@ -11,7 +11,7 @@ var util          = require('util');
 var axon          = require('pm2-axon');
 var sock          = axon.socket('sub');
 
-var pub_sock      = sock.bind(8080);
+var pub_sock      = sock.bind(9080);
 var Cipher        = require('../../lib/Interactor/Cipher.js');
 var cst           = require('../../constants.js');
 var Plan          = require('../helpers/plan.js');

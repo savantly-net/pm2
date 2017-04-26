@@ -13,7 +13,7 @@ Wrap.wrap(Module, '_load', function(load) {
 
 var server = axon.socket('sub');
 
-server.bind(8080);
+server.bind(9080);
 
 server.on('bind', function() {
   console.log('Server ready');
@@ -49,7 +49,7 @@ function setupConnection() {
     console.log('Reconnecting');
   });
 
-  client.connect(8080);
+  client.connect(9080);
 
   this.send = function() {
     client.send({success:true});
