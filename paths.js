@@ -43,6 +43,8 @@ module.exports = function(PM2_HOME) {
 
     DEFAULT_PID_PATH         : p.resolve(PM2_HOME, 'pids'),
     DEFAULT_LOG_PATH         : p.resolve(PM2_HOME, 'logs'),
+    DEFAULT_MODULE_PATH      : p.resolve(PM2_HOME, 'node_modules'),
+    KM_ACCESS_TOKEN          : p.resolve(PM2_HOME, 'km-access-token'),
     DUMP_FILE_PATH           : p.resolve(PM2_HOME, 'dump.pm2'),
 
     DAEMON_RPC_PORT          : p.resolve(PM2_HOME, 'rpc.sock'),
@@ -53,6 +55,15 @@ module.exports = function(PM2_HOME) {
     INTERACTOR_PID_PATH      : p.resolve(PM2_HOME, 'agent.pid'),
     INTERACTION_CONF         : p.resolve(PM2_HOME, 'agent.json5')
   };
+
+  // allow overide of file paths via environnement
+  var paths = Object.keys(pm2_file_stucture);
+  paths.forEach(function (key) {
+    var envKey = key.indexOf('PM2_') > -1 ? key : 'PM2_' + key;
+    if (process.env[envKey] && key !== 'PM2_HOME' && key !== 'PM2_ROOT_PATH') {
+      pm2_file_stucture[key] = process.env[envKey];
+    }
+  });
 
   if (process.platform === 'win32' ||
       process.platform === 'win64') {

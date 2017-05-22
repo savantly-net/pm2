@@ -1,5 +1,24 @@
 
-## 2.4.5
+## 2.4.7
+
+- `pm2 register|login` to create new account / login on Keymetrics + auto link
+- `pm2 open` to open dashboard on browser
+- `pm2 monitor|unmonitor <pm_id|name|all>` for selective monitoring
+- #2818 alias pm2-docker to pm2-daemon
+- #2809 correctly resolve git/npm repo when running pm2 install
+- #2861 better auto exit check for docker
+- #2870 avoid null error when preparing app config
+- #2872 avoid showing useless warning
+- #438 allow to override daemon config paths via env (example: `PM2_PID_FILE_PATH` to override pid file of the daemon)
+- #2849 better gentoo template for pm2 startup
+- #2868 allow tailing log with `--raw` flag
+- 
+- more informations when failing to deploy on custom ecosystem file
+- fix missing callback when override console.log
+- allow to rename daemon process name via `PM2_DAEMON_NAME`
+- few typo in the readme
+
+## 2.4.5/6
 
 - #2818 alias pm2-docker to pm2-runtime
 - #2815 polyfill for path.isAbsolute for node v0.11
@@ -7,7 +26,6 @@
 ### Breaking change
 
 - rundev command has been dropped because of too low adoption
-- dropped support for nodejs versions under 0.12
 
 ## 2.4.4
 
